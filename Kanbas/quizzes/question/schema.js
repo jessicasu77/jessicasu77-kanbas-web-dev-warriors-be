@@ -7,5 +7,6 @@ const questionSchema = new mongoose.Schema({
     },
     points: Number,
     description: String,
-    answers: [answerSchema]
+    options: [String],
+    answers: [String]
 })
