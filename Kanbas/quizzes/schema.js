@@ -1,5 +1,7 @@
-import mongoose from mongoose;
+import mongoose from "mongoose";
+import questionSchema from "./question/schema.js";
 const quizSchema = new mongoose.Schema({
+    _id: String,
     isPublished: { type: Boolean, required: true },
     questions: [questionSchema],
     title: { type: String, required: true },
@@ -26,5 +28,5 @@ const quizSchema = new mongoose.Schema({
     availableDate: Date,
     untilDate: Date
     },
-  { collection: courses });
-export default coursesSchema;
+  { collection: "quizzes" });
+export default quizSchema;

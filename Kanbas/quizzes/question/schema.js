@@ -1,4 +1,4 @@
-import mongoose from mongoose;
+import mongoose from "mongoose";
 const questionSchema = new mongoose.Schema({
     title: { type: String, required: true },
     type: {
@@ -10,3 +10,5 @@ const questionSchema = new mongoose.Schema({
     options: [String],
     answers: [String]
 })
+
+export default questionSchema;
