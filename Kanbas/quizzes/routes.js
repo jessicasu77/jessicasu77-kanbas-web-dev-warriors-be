@@ -13,6 +13,11 @@ function QuizzesRoutes(app) {
         }
         res.send(quiz);
     });
+     app.get("/api/quizzes/course/:id", async (req, res) => {
+        const { id } = req.params;
+        const quizzes = await dao.findQuizzesByCourseId(id);
+        res.send(quizzes);
+    });
     app.delete("/api/quizzes/:id", async (req, res) => {
         const { id } = req.params;
         await dao.deleteQuizById(id);
