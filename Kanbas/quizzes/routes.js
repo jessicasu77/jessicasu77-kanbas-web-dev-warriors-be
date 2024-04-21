@@ -29,6 +29,18 @@ function QuizzesRoutes(app) {
         await dao.updateQuizById(id, quiz);
         res.sendStatus(204);
     });
+    // publish or unpublish quiz
+    app.put("/api/quizzes/:id/publish", async (req, res) => {
+        const { id } = req.params;
+        const quiz = await dao.findQuizById(id);
+        if (!quiz) {
+            res.status(404).send("Quiz not found");
+            return;
+        }
+        quiz.isPublished = !quiz.isPublished;
+        await dao.updateQuizById(id, quiz);
+        res.sendStatus(204);
+    });
     app.post("/api/quizzes", async (req, res) => {
         const quiz = {
             ...req.body
