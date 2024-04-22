@@ -3,6 +3,7 @@ import questionSchema from "./question/schema.js";
 const quizSchema = new mongoose.Schema({
     _id: String,
     isPublished: { type: Boolean, required: true },
+    courseId: { type: String, required: true },
     questions: [questionSchema],
     title: { type: String, required: true },
     description: String,
